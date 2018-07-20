@@ -12,16 +12,23 @@ def is_mel(name, email):
     
     >>> is_mel("Mel Melitpolski", "mel@ubermelon.com")
     True
-    >>> is_mel("Melia", "melia@ubermelon.com")
+    >>> is_mel("Melia", "fake_email@gmail.com")
     False
-    >>> is_mel("Mel Melitpolski", "melia@ubermelon.com")
+    >>> is_mel("Mel Melitpolski", "fake_email@gmail.com")
     True
     >>> is_mel("Melia", "mel@ubermelon.com")
     True
-
+    >>> is_mel("mel", "mel@ubermelon.com")
+    True
+    >>> is_mel("mel", "fake_email@gmail.com")
+    True
+    >>> is_mel("mel melitpolski", "MEL@UBERMELON.COM")
+    True
     """
 
-    return name == "Mel Melitpolski" or email == "mel@ubermelon.com"
+
+    return (name.lower() in("mel melitpolski", "mel", "melitpolski")
+                 or email.lower() == "mel@ubermelon.com")
 
 
 def most_and_least_common_type(treats):
@@ -50,12 +57,8 @@ def most_and_least_common_type(treats):
     >>> most_and_least_common_type([{"type":"drink"}, {"type":"dessert"}])
     ('drink', 'drink')
 
-    >>> most_and_least_common_type([{"type":"dessert"}, {"type":"drink"}])
-    ('dessert', 'dessert')
-
-    >>> most_and_least_common_type([{"type":"drink"}, {"type":"dessert"}])
+    >>> most_and_least_common_type([{"type":"drink"}])
     ('drink', 'drink')
-
     
     """
 
